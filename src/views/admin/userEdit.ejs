@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+            <main>
+                <div class="edit-user-row">
+                    <h2 class="edit-user-title">Editar Datos de Perfil</h2>
+                    <form action="/users/userEdit/<%= user.id %>" enctype="multipart/form-data" id="userEdit"
+                        method="POST">
+                        <div class="user-edit">
+                            <div class="data-user">
+                                <label class="user-label" for="">Nombre</label>
+                                <input class="user-input" type="text" name="nombre" id="nombre"
+                                    value="<%= user.nombre %>">
+                                <div class="nombre-errors">
+
+                                    <% if (locals.errors && errors.nombre) { %>
+                                        <h4 class="error">
+                                            <%= errors.nombre.msg %>
+                                        </h4>
+                                        <% } %>
+                                </div>
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Apellido</label>
+                                <input class="user-input" type="text" name="apellido" id="apellido"
+                                    value="<%= user.apellido %>">
+                                <div class="apellido-errors">
+
+                                    <% if (locals.errors && errors.apellido) { %>
+                                        <h4 class="error">
+                                            <%= errors.apellido.msg %>
+                                        </h4>
+                                        <% } %>
+                                </div>
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Email</label>
+                                <input class="user-input" type="text" name="email" id="email" value="<%= user.email %>">
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Direccion</label>
+                                <input class="user-input" type="text" name="direccion" id="direccion"
+                                    value="<%= user.direccion %>">
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Ciudad</label>
+                                <input class="user-input" type="text" name="ciudad" id="ciudad"
+                                    value="<%= user.ciudad %>">
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Estado o Provincia</label>
+                                <input class="user-input" type="text" name="estado_provincia" id="estado_provincia"
+                                    value="<%= user.estado_provincia %>">
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">País</label>
+                                <input class="user-input" type="text" name="pais" id="pais" value="<%= user.pais %>">
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Codigo Postal</label>
+                                <input class="user-input" type="text" name="codigo_postal" id="codigo_postal"
+                                    value="<%= user.codigo_postal %>">
+                            </div>
+                            <div class="data-user">
+                                <label class="user-label" for="">Teléfono</label>
+                                <input class="user-input" type="text" name="telefono" id="telefono"
+                                    value="<%= user.telefono %>">
+                            </div>
+                            <div class="data-user">
+                                <!-- <img src="/images/user/user.profile_image%>" class="profile-img"
+                                    alt="usuario-avatar"> -->
+                                <label class="user-label" for="">Foto de Perfil</label>
+                                <input class="user-input" type="file" name="profile_image" id="profile_image"
+                                    value="<%= user.profile_image %>">
+                                <p class="allowed-formats">
+                                    JPG,JPEG,PNG,GIF
+                                </p>
+                            </div>
+                        </div>
+                        <button class="user-edit" type="submit">Editar</button>
+                    </form>
+                </div>
+
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+</html>

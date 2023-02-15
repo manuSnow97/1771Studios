@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<%- include('../partials/head') %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include('../partials/header') %>
+            <main>
+                <!-- sala detail -->
+                <div class="container salas-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="salas-title">Detalle de la sala: <%= sala.titulo %>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="sala-detail">
+                        <div class="salas-img-box">
+                            <img class='sala-img' src="/images/<%= sala.images %> ">
+                        </div>
+                        <div class="detalle">
+                            <article class="sala-detail-info">
+                                <p class="sala-detail-description">
+                                    <%= sala.metros_cuadrados %>
+                                        <%= sala.descripcion %>.
+                                </p>
+                                <p class="sala-detail-price">
+                                    Precio del turno (4hs) $<%= sala.precio %>
+                                </p>
+
+                            </article>
+                        </div>
+                        <div class="button-container">
+                            <% if (locals.userLogged && userLogged.categoria_usuario_id==1) { %>
+                                <a href="/salas/editarSala/<%=sala.id%>"><button class="botonBuy">Editar</button></a>
+                                <form action="/salas/deleteSala/<%=sala.id%>?_method=DELETE" method="POST"
+                                    style="display: inline-flex">
+                                    <button type="submit" class="action-button delete">Eliminar</button>
+                                </form>
+                                <% } %>
+                                    <% if (locals.userLogged) { %>
+                                        <button class="botonBuy">Agregar al carrito</button>
+                                        <% } %>
+                        </div>
+                    </div>
+                </div>
+                <!-- /sala detail -->
+            </main>
+            <!-- FOOTER -->
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

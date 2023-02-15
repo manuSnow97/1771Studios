@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<%- include('../partials/head') %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include('../partials/header') %>
+            <main>
+                <!-- curso detail -->
+                <div class="container cursos-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="cursos-title">Detalle del curso: <%= curso.titulo %>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="curso-detail">
+                        <div class="img-box">
+                            <img src="/images/<%= curso.images %>">
+                        </div>
+                        <div class="curso-info-box">
+                            <article class="curso-detail-info">
+                                <div class="detalle">
+                                    <p class="curso-detail-description">
+                                        En tus clases tendrás un encuentro personalizado con el docente a cargo con
+                                        quién
+                                        trabajarás técnica y repertorio a tu elección. El docente diseña ejercicios
+                                        específicos
+                                        para que logres aprender en forma dinámica, práctica y veloz. Podés optar por la
+                                        modalidad online o presencial con protocolo. En algunas actividades tendrás la
+                                        opción de
+                                        optar por la modalidad grupal, son grupos super reducidos de hasta 2 o 3 alumnos
+                                        por
+                                        curso. Los horarios son a combinar con el docente.
+                                        Nuestros docentes son profesionales recibidos que se adaptaran al nivel en el
+                                        que te
+                                        encuentres. Inicial/Intermedio /Avanzado. Desde tu primera clase notarás el
+                                        avance.
+                                        Respecto a tu edad… NO HAY EDAD PARA LA MÚSICA.
+                                    </p>
+                                    <p class="curso-detail-price">
+                                        Precio por mes $<%= curso.precio %>
+                                    </p>
+                                </div>
+
+                                <div class="button-container">
+                                    <% if (locals.userLogged && userLogged.categoria_usuario_id==1) { %>
+                                        <a href="/cursos/editarCurso/<%=curso.id%>"><button
+                                                class="botonBuy">Editar</button></a>
+                                        <form action="/cursos/deleteCurso/<%=curso.id%>?_method=DELETE" method="POST"
+                                            style="display: inline-flex">
+                                            <button type="submit" class="action-button delete">Eliminar</button>
+                                        </form>
+                                        <% } %>
+                                            <% if (locals.userLogged) { %>
+                                                <button class="botonBuy">Agregar al carrito</button>
+                                                <% } %>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+                <!-- /sala detail -->
+            </main>
+            <!-- FOOTER -->
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>

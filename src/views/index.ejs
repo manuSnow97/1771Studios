@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<%- include('partials/head') %>
+
+    <body>
+        <!-- HEADER -->
+        <%- include('partials/header') %>
+            <main>
+                <section class="info">
+                    <div class="description-1771">
+                        <div>
+                            <h2>1771 Studios, un espacio</h2>
+                            <h2>creado por y para músicos</h2>
+                        </div>
+                        <p>Registrate para ser parte de una experiencia profesional, con sonido de calidad en amplios y
+                            agradables espacios</p>
+                    </div>
+                    <div class="images">
+                        <img src="images/header2.jpeg" alt="">
+                    </div>
+                </section>
+                <section class="option">
+                    <% salas.forEach(sala=> { %>
+                        <a href="/salas/<%= sala.id %>">
+                            <article class="item-article">
+                                <img src="/images/<%= sala.images  %> " alt="bateria">
+                                <div class="main-article">
+                                    <h4>
+                                        <%= sala.titulo %>
+                                            $<%= sala.precio %>
+                                    </h4>
+                                </div>
+                            </article>
+
+                        </a>
+                        <% }) %>
+                </section>
+                <section class="Masterclasses">
+                    <div class="titulo-clases">
+                        <h2>Mejora tu técnica y profesionalízate en tu instrumento</h2>
+                        <h2>favorito con 1771 Studios Masterclasses</h2>
+                    </div>
+                    <div class="clases">
+                        <% cursos.forEach(curso=> { %>
+                            <a href="/cursos/<%= curso.id %>">
+                                <article class="clases-article">
+                                    <img src="/images/<%= curso.images  %> ">
+                                    <div class="clases">
+                                        <p>
+                                            <%= curso.titulo %>
+                                        </p>
+                                    </div>
+                                </article>
+                            </a>
+                            <% }) %>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="Maps">
+                        <h2>Visítanos</h2>
+                        <iframe id="mapa"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d13158.664569700617!2d-58.56582120000001!3d-34.460621800000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1658264221128!5m2!1ses-419!2sar"
+                            width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </section>
+            </main>
+            <!-- FOOTER -->
+            <%- include('partials/footer') %>
+    </body>
+
+</html>

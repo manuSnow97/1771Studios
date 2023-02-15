@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+            <main>
+                <div class="form-cursoCreate">
+                    <h2 class="crearCurso-title">Crear Curso</h2>
+                    <form action="/cursos/crearCurso" enctype="multipart/form-data" method="POST" id="crearCurso">
+                        <div class="crearCurso-elements">
+                            <label class="label-crearCurso" for="">Título</label>
+                            <input type="text" name="titulo" id="curso-titulo">
+                            <div class="curso-titulo-errors">
+                                <% if (locals.errors && errors.titulo) { %>
+                                    <h4 class="error">
+                                        <%= errors.titulo.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearCurso-elements">
+                            <label class="label-crearCurso" for="">Duración</label>
+                            <input type="text" name="duracion" id="duracion">
+                            <div class="duracion-errors">
+                                <% if (locals.errors && errors.duracion) { %>
+                                    <h4 class="error">
+                                        <%= errors.duracion.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearCurso-elements">
+                            <label class="label-crearCurso" for="">Precio</label>
+                            <input type="text" name="precio" id="precio-curso">
+                            <div class="precio-curso-errors">
+                                <% if (locals.errors && errors.precio) { %>
+                                    <h4 class="error">
+                                        <%= errors.precio.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearCurso-elements">
+                            <label class="label-curso" for="">Imagen</label>
+                            <input class="campos <%=(locals.errors && errors.profile_image)?'invalid':''%>" type="file"
+                                name="images" id="images"
+                                value="<%=(locals.oldData && oldData.profile_image)?oldData.profile_image:''%>">
+                            <p class="allowed-formats">
+                                JPG,JPEG,PNG,GIF
+                            </p>
+                            <div class="img-curso-errors">
+                                <% if (locals.errors && errors.imagen) { %>
+                                    <h4 class="error">
+                                        <%= errors.imagen.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <button type="submit">Crear</button>
+                    </form>
+                </div>
+                <script src="/scripts/cursoValidations.js"></script>
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+</html>

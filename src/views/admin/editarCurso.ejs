@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <div class="form-cursoEdit" id="curso-edit">
+                <h2 class="editCurso-title">Editar Curso</h2>
+                <form action="/cursos/editarCurso/<%= curso.id %>?_method=PUT" enctype="multipart/form-data" id="editarCurso" method="POST">
+                    <div class="editCurso-elements">
+                        <label class="label-curso" id="curso-titulo" for="">Título</label>
+                        <input class="curso-input" type="text" name="titulo" value="<%= curso.titulo %> ">
+                        <div class="curso-titulo-errors">
+                            <% if (locals.errors && titulo.errors) { %>
+                                <h4 class="error">
+                                    <%= errors.titulo.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                    </div>
+                    <div class="editCurso-elements">
+                        <label class="label-curso" for="">Duración</label>
+                        <input class="curso-input" type="text" name="duracion" id="duracion" value="<%= curso.duracion %>">
+                        <div class="duracion-errors">
+                            <% if (locals.errors && errors.duracion) { %>
+                                <h4 class="error">
+                                    <%= errors.duracion.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                    </div>
+                    <div class="editCurso-elements">
+                        <label class="label-curso" for="">Precio</label>
+                        <input class="curso-input" type="text" name="precio" id="precio-curso" value="<%= curso.precio %>">
+                        <div class="precio-curso-errors">
+                            <% if (locals.errors && errors.precio) { %>
+                                <h4 class="error">
+                                    <%= errors.precio.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                    </div>
+                    <div class="editCurso-elements">
+                        <label class="label-curso" for="">Imagen</label>
+                        <input type="file" name="images" id="images" value="<%= curso.images %> ">
+                            <p class="allowed-formats">
+                                JPG,JPEG,PNG,GIF
+                            </p>
+                            <div class="img-curso-errors">
+                                <% if (locals.errors && errors.imagen) { %>
+                                    <h4 class="error">
+                                        <%= errors.imagen.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                    </div>
+                    <div class="cursoEdit-buttons">
+                        <button type="submit">Editar</button>
+                </form>
+            </div>
+            </div>
+            <script src="/scripts/cursoEditValidations.js"></script>
+        </main>
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

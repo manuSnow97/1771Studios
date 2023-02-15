@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--TIPOGRAFIA ROBOTO-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- LIBRERIA FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/439c181295.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- ESTILOS PROPIOS-->
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/article.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+    <link href="/css/lista.css" rel="stylesheet">
+
+
+
+
+    <!--TITULO -->
+    <title>1771 Studios</title>
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <div class="lista-row">
+                <h3 class="titulo">Lista de Usuarios</h3>
+                <section class="main-section">
+                    <div class="lista-container">
+                        <div class="users">
+                            <% users.forEach(user=> { %>
+                                <div class="user-lista">
+                                    <figure class="user-image">
+                                        <img src="/images/user/<%= user.profile_image %>" class="lista-image" />
+                                    </figure>
+                                    <div class="user-datos">
+                                        <h2 class="user-nameList">Nombre:</h2><span class="data-user">
+                                            <%= user.nombre %>
+                                        </span>
+                                        <span class="data-user">
+                                            <%= user.apellido %>
+                                        </span>
+                                        <h2 class="user-nameList">Email:</h2><span class="data-user">
+                                            <%= user.email %>
+                                        </span>
+                                        <h2 class="user-nameList">Tipo de Usuario:</h2><span class="data-user">
+                                            <%= user.categoria_usuario_id %>
+                                        </span>
+                                    </div>
+                                    </a>
+                                </div>
+                                <% if (locals.userLogged && userLogged.categoria_usuario_id==1) { %>
+                                    <form action="/users/deleteUser/<%=user.id%>?_method=DELETE" method="POST"
+                                        id="delete-user">
+                                        <button type="submit" class="action-button delete">Eliminar</button>
+                                    </form>
+                                    <% } %>
+                                        <% }); %>
+                        </div>
+                        <div class="button-container">
+
+                        </div>
+                    </div>
+            </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

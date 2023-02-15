@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--TIPOGRAFIA ROBOTO-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- LIBRERIA FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/439c181295.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- ESTILOS PROPIOS-->
+    <!-- <link href="/css/styles.css" rel="stylesheet"> -->
+    <!-- <link href="/css/colors.css" rel="stylesheet"> -->
+    <!-- <link href="/css/index.css" rel="stylesheet"> -->
+    <!-- <link href="/css/article.css" rel="stylesheet"> -->
+    <link href="/css/register.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/article.css" rel="stylesheet">
+
+    <!--TITULO -->
+    <title>1771 Studios</title>
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <%- include('../partials/header') %>
+        <main>
+            <div class="form-container" id="newUser">
+                <h2>Registrate</h2>
+                <form action="/users/register" enctype="multipart/form-data" id="register" method="POST">
+                    <div class="row">
+                        <input type="text" name="nombre" id="nombre" class="form-control users" placeholder="Nombre">
+                        <div class="nombre-errors">
+
+                            <% if (locals.errors && errors.nombre) { %>
+                                <h4 class="error">
+                                    <%= errors.nombre.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="text" name="apellido" id="apellido" class="form-control users"
+                            placeholder="Apellido">
+                        <div class="apellido-errors">
+
+                            <% if (locals.errors && errors.apellido) { %>
+                                <h4 class="error">
+                                    <%= errors.apellido.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="email" name="email" id="email" class="form-control email" placeholder="Email">
+                        <div class="email-errors">
+
+                            <% if (locals.errors && errors.email) { %>
+                                <h4 class="error">
+                                    <%= errors.email.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="direccion" name="direccion" id="direccion" class="form-control"
+                            placeholder="Direccion">
+                        <div class="direccion-errors">
+
+                            <% if (locals.errors && errors.direccion) { %>
+                                <h4 class="error">
+                                    <%= errors.direccion.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="ciudad" name="ciudad" id="ciudad" class="form-control" placeholder="Ciudad">
+                        <div class="ciudad-errors">
+
+                            <% if (locals.errors && errors.ciudad) { %>
+                                <h4 class="error">
+                                    <%= errors.ciudad.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="estado" name="estado_provincia" id="estado_provincia" class="form-control"
+                            placeholder="Estado o Provincia">
+                        <div class="estado-errors">
+
+                            <% if (locals.errors && errors.estado) { %>
+                                <h4 class="error">
+                                    <%= errors.estado.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="pais" name="pais" id="pais" class="form-control" placeholder="Pais">
+                        <div class="pais-errors">
+
+                            <% if (locals.errors && errors.pais) { %>
+                                <h4 class="error">
+                                    <%= errors.pais.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="codigo_postal" name="codigo_postal" id="codigo_postal" class="form-control"
+                            placeholder="Codigo Postal">
+                        <div class="codigo-errors">
+
+                            <% if (locals.errors && errors.codigo_postal) { %>
+                                <h4 class="error">
+                                    <%= errors.codigo_postal.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="telefono" name="telefono" id="telefono" class="form-control"
+                            placeholder="Telefono">
+                        <div class="telefono-errors">
+                            <% if (locals.errors && errors.telefono) { %>
+                                <h4 class="error">
+                                    <%= errors.telefono.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input type="password" name="password" id="password" class="form-control"
+                            placeholder=" password">
+                        <div class="password-errors">
+                            <% if (locals.errors && errors.password) { %>
+                                <h4 class="error">
+                                    <%= errors.password.msg %>
+                                </h4>
+                                <% } %>
+                        </div>
+                        <input class="campos <%=(locals.errors && errors.profile_image)?'invalid':''%>" type="file"
+                            placeholder="" id="profile_image" name="profile_image"
+                            value="<%=(locals.oldData && oldData.profile_image)?oldData.profile_image:''%>">
+                        <p class="allowed-formats">
+                            JPG,JPEG,PNG,GIF
+                        </p>
+                        <div class="profileImg-errors">
+                            <div class="image-errors">
+                                <% if(locals.errors && errors.profile_image){%>
+                                    <p class="error">
+                                        <%=errors.profile_image.msg%>
+                                    </p>
+                                    <%}%>
+                            </div>
+                        </div>
+
+                        <button class="ov-btn-grow-spin" type="submit">Sing
+                            Up</button>
+                        <div class="description-container">
+                            <p>By
+                                signing
+                                up you
+                                agree to
+                                our
+                                Terms &
+                                Conditions
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <script src="/scripts/registerValidations.js"></script>
+        </main>
+        <%- include('../partials/footer') %>
+</body>
+
+</html>

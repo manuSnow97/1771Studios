@@ -1,0 +1,715 @@
+* {
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    background: #f9fafb;
+}
+
+input[type=password],
+input[type=email],
+input[type=text],
+input[type=direccion],
+input[type=ciudad],
+input[type=estado],
+input[type=pais],
+input[type=codigo_postal],
+input[type=telefono] {
+    /* width: 100%; */
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    margin-left: 15px;
+    border-radius: 20px;
+}
+
+button {
+    /* box-shadow: 0px 0px 10px rgb(100, 100, 100); */
+    background: #666;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+
+}
+
+/*!! ------HEADER------ !!*/
+
+header {
+    width: 90%;
+    margin: 0 auto;
+}
+
+header .top-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+
+header img {
+    /* border: 2px solid blueviolet; */
+    display: flex;
+    width: 120px;
+    height: 87px;
+    padding: 10px;
+}
+
+header .enlaces {
+    /* border: 3px solid red; */
+    display: flex;
+    font-size: 16px;
+    width: 100%;
+    list-style: none;
+    justify-content: space-between;
+}
+
+header .enlaces a {
+    text-decoration: none;
+    color: gray;
+    font-size: 14px;
+}
+
+header .burger-container {
+    /* border: 3px solid red; */
+    display: none;
+    justify-content: center;
+
+}
+
+
+@media (max-width: 768px) {
+    header .burger-container {
+        display: flex;
+    }
+
+    header .enlaces {
+        display: none;
+    }
+
+    header .top-header {
+        justify-content: space-between;
+    }
+}
+
+/*------INDEX------*/
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+section.info {
+    margin-top: 15px;
+    display: flex;
+    padding: 0 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    justify-content: space-around;
+}
+
+section.info .description-1771 {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+section .images {
+    width: 30%;
+    margin-top: 15px;
+}
+
+
+section .images img {
+    width: 100%;
+}
+
+section.info .description-1771 p {
+    width: 86%;
+    color: gray;
+}
+
+section.info .description-1771 h2 {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+section.info .description-1771 .login {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+section.info .description-1771 input,
+section.info .description-1771 button {
+    width: 32%;
+}
+
+/* Perfil */
+.perfil-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image {
+    /* border: solid 1px red; */
+    display: flex;
+    justify-content: center;
+}
+
+img.profile-img {
+    border: solid 2px black;
+    border-radius: 20px;
+    width: 50%;
+    padding: 25px;
+}
+
+h5.card-title {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 50px;
+}
+
+p.card-text {
+    border: solid 3px black;
+    border-radius: 20px;
+    background-color: #edae1a;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+button.perfil-edit {
+    margin-bottom: 45px;
+    margin-left: 85px;
+}
+
+/* Lista Usuarios */
+
+h3.titulo {
+    border: solid 3px black;
+    border-radius: 20px;
+    background-color: #edae1a;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.lista-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img.lista-image {
+    border: solid 2px black;
+    border-radius: 20px;
+    width: 50%;
+    padding: 25px;
+}
+
+figure.user-image {
+    display: flex;
+    justify-content: center;
+}
+
+.user-datos {
+    display: flex;
+    font-size: 14px;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.user-nameList {
+    border: solid 3px black;
+    border-radius: 20px;
+    background-color: #edae1a;
+    color: #fff;
+    font-size: 15px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+span.data-user {
+    font-size: 13px;
+}
+
+form#delete-user {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+/* User Edit */
+.edit-user-row {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+}
+
+.edit-user-title {
+    border: solid 2px black;
+    border-radius: 20px;
+    background-color: #edae1a;
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+div.data-user {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+input.user-input {
+    margin-left: 65px;
+}
+
+label.user-label {
+    display: flex;
+    justify-content: center;
+}
+
+button.user-edit {
+    margin-bottom: 45px;
+    margin-left: 150px;
+}
+
+
+/* Lista Cursos */
+
+div.curso-container {
+    display: flex;
+}
+
+/* Detalle Curso */
+
+div.container.cursos-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.cursos-title {
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: #edae1a;
+    border-radius: 5px;
+    color: #fff;
+}
+
+div.img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid 1px gray;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+}
+
+div.detalle {
+    margin-top: 5px;
+    padding: 8px;
+    background-color: #edae1a;
+    color: #fff;
+    border-radius: 5px;
+    border: solid 2px black;
+}
+
+div.button-container {
+    margin-bottom: 15px;
+    direction: rtl;
+}
+
+/* Editar Curso */
+
+.form-cursoEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.editCurso-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    border: solid 2px black;
+    color: #fff;
+    background-color: #edae1a;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.cursoEdit-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-evenly;
+    margin-bottom: 45px;
+    margin-right: 10px;
+}
+
+.editCurso-elements {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+input.curso-input {
+    margin-left: 25px;
+}
+
+label.label-curso {
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+/* Crear Curso */
+
+.form-cursoCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.crearCurso-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: solid 2px black;
+    color: #fff;
+    background-color: #edae1a;
+    padding: 8px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+button.crearCurso-button {
+    margin-bottom: 45px;
+    margin-left: 120px;
+}
+
+.crearCurso-elements {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+input.crearCurso-input {
+    margin-left: 45px;
+}
+
+label.label-crearCurso {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+/* Detalle Salas */
+
+div.container.salas-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.salas-img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: solid 1px gray;
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+}
+
+.sala-img {
+    width: 75%;
+}
+
+h2.salas-title {
+    margin-bottom: 15px;
+    padding: 8px;
+    background-color: #edae1a;
+    border-radius: 5px;
+    color: #fff;
+}
+
+/* Editar Sala */
+
+.form-salaEdit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.editSala-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: solid 2px black;
+    color: #fff;
+    background-color: #edae1a;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.salaEdit-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-evenly;
+    margin-bottom: 45px;
+}
+
+.editSala-elements {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+input.sala-input {
+    margin-left: 35px;
+}
+
+label.label-sala {
+    display: flex;
+    justify-content: center;
+}
+
+/* Crear Sala */
+
+.form-salaCreate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.crearSala-title {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: solid 2px black;
+    color: #fff;
+    background-color: #edae1a;
+    padding: 8px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+button.crearSala-button {
+    margin-bottom: 45px;
+    margin-left: 120px;
+}
+
+.crearSala-elements {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+input.crearSala-input {
+    margin-left: 45px;
+}
+
+label.label-crearSala {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+/* About */
+
+div.description-about {
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.about {
+    display: flex;
+    flex-direction: row;
+}
+
+h2.somos {
+    margin-left: 10px;
+    color: #edae1a;
+}
+
+p.about-us {
+    width: 61.4%;
+    margin-top: 40px;
+    background-color: #edae1a;
+    color: #fff;
+    border: solid 1px gray;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+p.about-us-2 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    color: #666;
+}
+
+img#logo-about {
+    border: solid 2px black;
+}
+
+/* Carrito de compras*/
+
+.row.no-gutters {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.payment-info {
+    padding: 8px;
+}
+
+.type-card {
+    margin-right: 15px;
+}
+
+.name-client {
+    margin-top: 15px;
+}
+
+.seguir-comprando {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.payment-information {
+    margin-top: 15px;
+}
+
+@media (max-width: 425px) {
+    section.info .description-1771 p {
+        display: none;
+    }
+
+    section.info .description-1771 h2 {
+        margin-bottom: 10px;
+        color: #666;
+        display: flex;
+        font-size: 22px;
+        justify-content: center;
+    }
+
+    div.description-about {
+        width: 100%;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+
+    p.about-us {
+        width: 80%;
+        margin-top: 50px;
+    }
+
+    p.about-us-2 {
+        width: 80%;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    h2.about {
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    img#logo-about {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    section.info .description-1771 {
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    section .images {
+        width: 100%;
+    }
+
+    section .images img {
+        width: 100%;
+        display: none;
+    }
+
+    section.info .description-1771 input,
+    section.info .description-1771 button {
+        padding: 10px;
+        width: 58%;
+        margin: 6px;
+        border-radius: 5px;
+    }
+
+    section.info .description-1771 h2 {
+        margin-bottom: 10px;
+        color: #666;
+        display: flex;
+        justify-content: center;
+    }
+
+    section.info .description-1771 p {
+        width: 86%;
+        color: gray;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    div.description-about {
+        width: 100%;
+        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+
+    p.about-us {
+        width: 92%;
+        margin-top: 50px;
+    }
+
+}

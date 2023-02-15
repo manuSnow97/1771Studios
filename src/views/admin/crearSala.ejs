@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+            <main>
+                <div class="form-salaCreate">
+                    <h2 class="crearSala-title">Crear Sala</h2>
+                    <form action="/salas/crearSala" enctype="multipart/form-data" method="POST">
+                        <div class="crearSala-elements">
+                            <label class="label-crearSala" for="">Título</label>
+                            <input class="crearSala-input" type="text" name="titulo" id="sala-titulo">
+                            <div class="sala-titulo-errors">
+                                <% if (locals.errors && errors.titulo) { %>
+                                    <h4 class="error">
+                                        <%= errors.titulo.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearSala-elements">
+                            <label class="label-crearSala" for="">Tamaño</label>
+                            <input class="crearSala-input" type="text" name="metros_cuadrados" id="metros_cuadrados">
+                            <div class="tamaño-errors">
+                                <% if (locals.errors && errors.tamaño) { %>
+                                    <h4 class="error">
+                                        <%= errors.tamaño.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearSala-elements">
+                            <label class="label-crearSala" for="">Turno</label>
+                            <input class="crearSala-input" type="text" name="turno_sala" id="turno_sala">
+                            <div class="turno-errors">
+                                <% if (locals.errors && errors.turno) { %>
+                                    <h4 class="error">
+                                        <%= errors.turno.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearSala-elements">
+                            <label class="label-crearSala" for="">Precio</label>
+                            <input class="crearSala-input" type="text" name="precio" id="precio">
+                            <div class="precio-sala-errors">
+                                <% if (locals.errors && errors.precio) { %>
+                                    <h4 class="error">
+                                        <%= errors.precio.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearSala-elements">
+                            <label class="label-crearSala" for="">Imagen</label>
+                            <input class="crearSala-input" type="file" name="images" id="images">
+                            <p class="allowed-formats">
+                                JPG,JPEG,PNG,GIF
+                            </p>
+                            <div class="img-sala-errors">
+                                <% if (locals.errors && errors.imagen) { %>
+                                    <h4 class="error">
+                                        <%= errors.imagen.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <div class="crearSala-elements">
+                            <label class="label-crearSala" for="">Descripción</label>
+                            <input class="crearSala-input" type="text" name="descripcion" id="descripcion">
+                            <div class="descripcion-sala-errors">
+                                <% if (locals.errors && errors.descripcion) { %>
+                                    <h4 class="error">
+                                        <%= errors.descripcion.msg %>
+                                    </h4>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <button class="crearSala-button" type="submit">Crear</button>
+                    </form>
+                </div>
+                <script src="/scripts/salaValidations.js"></script>
+            </main>
+
+            <%- include('../partials/footer') %>
+
+    </body>
+
+</html>

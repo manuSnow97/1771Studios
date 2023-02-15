@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--TIPOGRAFIA ROBOTO-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <!-- LIBRERIA FONTAWESOME-->
+    <script src="https://kit.fontawesome.com/439c181295.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- ESTILOS PROPIOS-->
+    <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/article.css" rel="stylesheet">
+    <link href="/css/footer.css" rel="stylesheet">
+    <link href="/css/lista.css" rel="stylesheet">
+
+
+
+
+    <!--TITULO -->
+    <title>1771 Studios</title>
+
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+        <main>
+            <h3 class="titulo">Lista de Cursos</h3>
+            <section class="main-section">
+                <div class="lista-container">
+                    <div class="cursos">
+                        <% cursos.forEach(curso=> { %>
+                            <div class="img-under">
+                                <figure class="curso-image">
+                                    <img src="/images/<%= curso.images %>" />
+                                    <div class="curso-over">
+                                        <a href="/cursos/<%= curso.id %>"></a>
+                                    </div>
+                                </figure>
+                                <a href="/cursos/<%= curso.id %>" style="text-decoration: none; color: #fff;">
+                                    <div class="curso-summary">
+                                        <h4 class="titulo-curso">
+                                            <%= curso.titulo %>:
+                                        </h4>
+                                        <h6 class="price">
+                                            $<span class="priceValue">
+                                                <%= curso.precio %> por mes
+                                            </span>
+                                            </h3>
+                                    </div>
+                                </a>
+                            </div>
+                            <% }); %>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                    <div class="button-createCurso">
+                        <% if (locals.userLogged && userLogged.categoria_usuario_id==1) { %>
+                            <a href="/cursos/crearCurso"><button type="submit" class="botonBuy">Crear</button></a>
+                            <% } %>
+                    </div>
+                </div>
+                <script>
+                    let slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        let i;
+                        let slides = document.getElementsByClassName("img-under");
+                        if (n > slides.length) { slideIndex = 1 }
+                        if (n < 1) { slideIndex = slides.length }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                    }
+                </script>
+            </section>
+        </main>
+
+        <%- include('../partials/footer') %>
+
+</body>
+
+</html>

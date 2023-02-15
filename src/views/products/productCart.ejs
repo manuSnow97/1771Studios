@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- HEAD -->
+<%- include('../partials/head') %>
+
+    <body>
+        <%- include('../partials/header') %>
+            </header>
+            <main>
+                <!-- Forma de pago -->
+                <div class="container mt-5 p-3 rounded cart">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="product-details mr-2">
+                                <div class="seguir-comprando">
+                                    <a href="/">
+                                        <span class="ml-2" style="text-decoration: none; color: #edae1a; margin-bottom: 10px;">Seguir Comprando</span>
+                                </div>
+                                </a>
+                                <hr>
+                                <h6 class="mb-0">Shopping cart</h6>
+                                <div class="d-flex justify-content-between">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="payment-info">
+                                <span class="type-card">Seleccionar Tipo de Tarjeta</span><label class="radio">
+                                    <input type="radio" name="card" value="payment" checked> <span><img width="30"
+                                            src="https://img.icons8.com/color/48/000000/mastercard.png" /></span>
+                                </label>
+
+                                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img
+                                            width="30" src="https://img.icons8.com/officel/48/000000/visa.png" /></span>
+                                </label>
+                                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img
+                                            width="30"
+                                            src="https://img.icons8.com/ultraviolet/48/000000/amex.png" /></span>
+                                </label>
+                                <label class="radio"> <input type="radio" name="card" value="payment"> <span><img
+                                            width="30"
+                                            src="https://img.icons8.com/officel/48/000000/paypal.png" /></span> </label>
+
+                                <div class="name-client"><label class="credit-card-label">Nombre y
+                                        Apellido</label><input type="text" class="form-control credit-inputs"
+                                        placeholder="Name"></div>
+                                <div class="card-number"><label class="credit-card-label">Ingresar numero</label><input
+                                        type="text" class="form-control credit-inputs"
+                                        placeholder="0000 0000 0000 0000"></div>
+                                <div class="row">
+                                    <div class="card-date"><label class="credit-card-label">Date</label><input
+                                            type="text" class="form-control credit-inputs" placeholder="12/24"></div>
+                                    <div class="card-cvv"><label class="credit-card-label">CVV</label><input type="text"
+                                            class="form-control credit-inputs" placeholder="342"></div>
+                                </div>
+                                <hr class="line">
+                                <div class="payment-information">
+                                    <span>Subtotal</span>
+                                </div>
+                                <div class="payment-information">
+                                    <span>Total</span>
+                                </div><button class="btn btn-primary btn-block d-flex justify-content-between mt-3"
+                                    type="button"><span>Checkout<i
+                                            class="fa fa-long-arrow-right ml-1"></i></span></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- FOOTER -->
+            <%- include('../partials/footer') %>
+    </body>
+
+</html>
